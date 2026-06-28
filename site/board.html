@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#080b10">
+    <title>SU1032 и SU1009 — табло</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/app.js" defer></script>
+  </head>
+  <body data-variant="board">
+    <main class="dashboard">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">Москва · Калининград</p>
+          <h1>SU1032 <span>&amp;</span> SU1009</h1>
+        </div>
+        <p class="updated" id="updated-at">Обновление данных…</p>
+      </header>
+
+      <section class="history" aria-label="История рейсов">
+        <div class="history-list" id="history-list" aria-live="polite"></div>
+      </section>
+
+      <footer class="statistics" id="statistics" aria-label="Статистика рейсов"></footer>
+    </main>
+  </body>
+</html>
