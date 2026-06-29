@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-29T06:24:12Z",
+  "updatedAt": "2026-06-29T11:33:26Z",
   "flights": {
     "SU1032": {
       "departureAirport": "SVO",
@@ -19,29 +19,29 @@
     {
       "date": "2026-06-29",
       "SU1032": {
-        "status": "airborne",
+        "status": "landed",
         "scheduledDeparture": "2026-06-29T04:30:00Z",
         "actualDeparture": "2026-06-29T04:41:24Z",
         "estimatedDeparture": null,
         "scheduledArrival": "2026-06-29T07:05:00Z",
-        "actualArrival": null,
+        "actualArrival": "2026-06-29T06:57:00Z",
         "estimatedArrival": null,
-        "durationMinutes": null,
+        "durationMinutes": 136,
         "departureDelayMinutes": 11,
-        "arrivalDelayMinutes": null,
+        "arrivalDelayMinutes": -8,
         "source": "svo"
       },
       "SU1009": {
-        "status": "airborne",
+        "status": "landed",
         "scheduledDeparture": "2026-06-29T01:00:00Z",
         "actualDeparture": "2026-06-29T04:52:00Z",
         "estimatedDeparture": null,
         "scheduledArrival": "2026-06-29T03:30:00Z",
-        "actualArrival": null,
-        "estimatedArrival": "2026-06-29T07:37:00Z",
-        "durationMinutes": null,
+        "actualArrival": "2026-06-29T07:03:37Z",
+        "estimatedArrival": "2026-06-29T07:02:00Z",
+        "durationMinutes": 132,
         "departureDelayMinutes": 232,
-        "arrivalDelayMinutes": 247,
+        "arrivalDelayMinutes": 214,
         "source": "svo"
       }
     },
@@ -315,21 +315,21 @@
   ],
   "statistics": {
     "SU1032": {
-      "landedFlights": 8,
+      "landedFlights": 9,
       "cancelledFlights": 1,
       "divertedFlights": 0,
       "unknownFlights": 0,
       "averageDepartureDelayMinutes": 12,
       "averageArrivalDelayMinutes": 1,
-      "cancellationProbabilityPercent": 11.1
+      "cancellationProbabilityPercent": 10.0
     },
     "SU1009": {
-      "landedFlights": 7,
+      "landedFlights": 8,
       "cancelledFlights": 0,
       "divertedFlights": 1,
       "unknownFlights": 1,
-      "averageDepartureDelayMinutes": 32,
-      "averageArrivalDelayMinutes": 42,
+      "averageDepartureDelayMinutes": 57,
+      "averageArrivalDelayMinutes": 64,
       "cancellationProbabilityPercent": 0.0
     }
   }
