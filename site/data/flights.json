@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-28T21:03:46Z",
+  "updatedAt": "2026-06-29T19:33:35Z",
   "flights": {
     "SU1032": {
       "departureAirport": "SVO",
@@ -19,30 +19,34 @@
     {
       "date": "2026-06-29",
       "SU1032": {
-        "status": "scheduled",
+        "status": "landed",
         "scheduledDeparture": "2026-06-29T04:30:00Z",
-        "actualDeparture": null,
+        "actualDeparture": "2026-06-29T04:41:24Z",
         "estimatedDeparture": null,
         "scheduledArrival": "2026-06-29T07:05:00Z",
-        "actualArrival": null,
+        "actualArrival": "2026-06-29T06:57:00Z",
         "estimatedArrival": null,
-        "durationMinutes": null,
-        "departureDelayMinutes": null,
-        "arrivalDelayMinutes": null,
-        "source": "svo"
+        "durationMinutes": 136,
+        "departureDelayMinutes": 11,
+        "arrivalDelayMinutes": -8,
+        "source": "svo",
+        "sourceFlightId": "9582556",
+        "sourceUrl": "https://www.svo.aero/ru/timetable/departure/flight/9582556/info"
       },
       "SU1009": {
-        "status": "scheduled",
+        "status": "landed",
         "scheduledDeparture": "2026-06-29T01:00:00Z",
-        "actualDeparture": null,
+        "actualDeparture": "2026-06-29T04:52:00Z",
         "estimatedDeparture": null,
         "scheduledArrival": "2026-06-29T03:30:00Z",
-        "actualArrival": null,
-        "estimatedArrival": null,
-        "durationMinutes": null,
-        "departureDelayMinutes": null,
-        "arrivalDelayMinutes": null,
-        "source": "svo"
+        "actualArrival": "2026-06-29T07:03:37Z",
+        "estimatedArrival": "2026-06-29T07:02:00Z",
+        "durationMinutes": 132,
+        "departureDelayMinutes": 232,
+        "arrivalDelayMinutes": 214,
+        "source": "svo",
+        "sourceFlightId": "9582517",
+        "sourceUrl": "https://www.svo.aero/ru/timetable/arrival/flight/9582517/info"
       }
     },
     {
@@ -58,7 +62,9 @@
         "durationMinutes": 137,
         "departureDelayMinutes": 10,
         "arrivalDelayMinutes": -13,
-        "source": "svo"
+        "source": "svo",
+        "sourceFlightId": "9581521",
+        "sourceUrl": "https://www.svo.aero/ru/timetable/departure/flight/9581521/info"
       },
       "SU1009": {
         "status": "landed",
@@ -71,7 +77,9 @@
         "durationMinutes": 124,
         "departureDelayMinutes": 12,
         "arrivalDelayMinutes": -14,
-        "source": "svo"
+        "source": "svo",
+        "sourceFlightId": "9581485",
+        "sourceUrl": "https://www.svo.aero/ru/timetable/arrival/flight/9581485/info"
       }
     },
     {
@@ -102,234 +110,25 @@
         "arrivalDelayMinutes": -30,
         "source": "svo"
       }
-    },
-    {
-      "date": "2026-06-26",
-      "SU1032": {
-        "status": "landed",
-        "scheduledDeparture": "2026-06-26T04:25:00Z",
-        "actualDeparture": "2026-06-26T04:56:00Z",
-        "estimatedDeparture": null,
-        "scheduledArrival": "2026-06-26T07:05:00Z",
-        "actualArrival": "2026-06-26T07:13:00Z",
-        "estimatedArrival": null,
-        "durationMinutes": 137,
-        "departureDelayMinutes": 31,
-        "arrivalDelayMinutes": 8,
-        "source": "fr24-seed"
-      }
-    },
-    {
-      "date": "2026-06-25",
-      "SU1032": {
-        "status": "landed",
-        "scheduledDeparture": "2026-06-25T04:25:00Z",
-        "actualDeparture": "2026-06-25T04:31:00Z",
-        "estimatedDeparture": null,
-        "scheduledArrival": "2026-06-25T07:05:00Z",
-        "actualArrival": "2026-06-25T06:42:00Z",
-        "estimatedArrival": null,
-        "durationMinutes": 132,
-        "departureDelayMinutes": 6,
-        "arrivalDelayMinutes": -23,
-        "source": "fr24-seed"
-      }
-    },
-    {
-      "date": "2026-06-24",
-      "SU1032": {
-        "status": "landed",
-        "scheduledDeparture": "2026-06-24T04:25:00Z",
-        "actualDeparture": "2026-06-24T04:33:00Z",
-        "estimatedDeparture": null,
-        "scheduledArrival": "2026-06-24T07:05:00Z",
-        "actualArrival": "2026-06-24T06:48:00Z",
-        "estimatedArrival": null,
-        "durationMinutes": 135,
-        "departureDelayMinutes": 8,
-        "arrivalDelayMinutes": -17,
-        "source": "fr24-seed"
-      },
-      "SU1009": {
-        "status": "unknown",
-        "scheduledDeparture": "2026-06-24T01:00:00Z",
-        "actualDeparture": "2026-06-24T01:22:00Z",
-        "estimatedDeparture": null,
-        "scheduledArrival": "2026-06-24T03:30:00Z",
-        "actualArrival": null,
-        "estimatedArrival": null,
-        "durationMinutes": null,
-        "departureDelayMinutes": 22,
-        "arrivalDelayMinutes": null,
-        "source": "fr24-seed"
-      }
-    },
-    {
-      "date": "2026-06-23",
-      "SU1032": {
-        "status": "landed",
-        "scheduledDeparture": "2026-06-23T04:25:00Z",
-        "actualDeparture": "2026-06-23T04:40:00Z",
-        "estimatedDeparture": null,
-        "scheduledArrival": "2026-06-23T07:05:00Z",
-        "actualArrival": "2026-06-23T06:56:00Z",
-        "estimatedArrival": null,
-        "durationMinutes": 137,
-        "departureDelayMinutes": 15,
-        "arrivalDelayMinutes": -9,
-        "source": "fr24-seed"
-      },
-      "SU1009": {
-        "status": "landed",
-        "scheduledDeparture": "2026-06-23T01:00:00Z",
-        "actualDeparture": "2026-06-23T00:55:00Z",
-        "estimatedDeparture": null,
-        "scheduledArrival": "2026-06-23T03:30:00Z",
-        "actualArrival": "2026-06-23T03:09:00Z",
-        "estimatedArrival": null,
-        "durationMinutes": 134,
-        "departureDelayMinutes": -5,
-        "arrivalDelayMinutes": -21,
-        "source": "fr24-seed"
-      }
-    },
-    {
-      "date": "2026-06-22",
-      "SU1032": {
-        "status": "cancelled",
-        "scheduledDeparture": "2026-06-22T04:30:00Z",
-        "actualDeparture": null,
-        "estimatedDeparture": null,
-        "scheduledArrival": "2026-06-22T07:05:00Z",
-        "actualArrival": null,
-        "estimatedArrival": null,
-        "durationMinutes": null,
-        "departureDelayMinutes": null,
-        "arrivalDelayMinutes": null,
-        "source": "fr24-seed"
-      },
-      "SU1009": {
-        "status": "landed",
-        "scheduledDeparture": "2026-06-22T01:00:00Z",
-        "actualDeparture": "2026-06-22T03:25:00Z",
-        "estimatedDeparture": null,
-        "scheduledArrival": "2026-06-22T03:30:00Z",
-        "actualArrival": "2026-06-22T07:37:00Z",
-        "estimatedArrival": null,
-        "durationMinutes": 251,
-        "departureDelayMinutes": 145,
-        "arrivalDelayMinutes": 247,
-        "source": "fr24-seed"
-      }
-    },
-    {
-      "date": "2026-06-21",
-      "SU1032": {
-        "status": "landed",
-        "scheduledDeparture": "2026-06-21T04:25:00Z",
-        "actualDeparture": "2026-06-21T04:35:00Z",
-        "estimatedDeparture": null,
-        "scheduledArrival": "2026-06-21T07:05:00Z",
-        "actualArrival": "2026-06-21T06:49:00Z",
-        "estimatedArrival": null,
-        "durationMinutes": 134,
-        "departureDelayMinutes": 10,
-        "arrivalDelayMinutes": -16,
-        "source": "fr24-seed"
-      },
-      "SU1009": {
-        "status": "landed",
-        "scheduledDeparture": "2026-06-21T01:00:00Z",
-        "actualDeparture": "2026-06-21T01:01:00Z",
-        "estimatedDeparture": null,
-        "scheduledArrival": "2026-06-21T03:30:00Z",
-        "actualArrival": "2026-06-21T03:14:00Z",
-        "estimatedArrival": null,
-        "durationMinutes": 133,
-        "departureDelayMinutes": 1,
-        "arrivalDelayMinutes": -16,
-        "source": "fr24-seed"
-      }
-    },
-    {
-      "date": "2026-06-20",
-      "SU1032": {
-        "status": "landed",
-        "scheduledDeparture": "2026-06-20T04:25:00Z",
-        "actualDeparture": "2026-06-20T04:32:00Z",
-        "estimatedDeparture": null,
-        "scheduledArrival": "2026-06-20T07:05:00Z",
-        "actualArrival": "2026-06-20T06:46:00Z",
-        "estimatedArrival": null,
-        "durationMinutes": 134,
-        "departureDelayMinutes": 7,
-        "arrivalDelayMinutes": -19,
-        "source": "fr24-seed"
-      },
-      "SU1009": {
-        "status": "landed",
-        "scheduledDeparture": "2026-06-20T01:00:00Z",
-        "actualDeparture": "2026-06-20T01:01:00Z",
-        "estimatedDeparture": null,
-        "scheduledArrival": "2026-06-20T03:30:00Z",
-        "actualArrival": "2026-06-20T03:11:00Z",
-        "estimatedArrival": null,
-        "durationMinutes": 131,
-        "departureDelayMinutes": 1,
-        "arrivalDelayMinutes": -19,
-        "source": "fr24-seed"
-      }
-    },
-    {
-      "date": "2026-06-19",
-      "SU1009": {
-        "status": "landed",
-        "scheduledDeparture": "2026-06-19T01:00:00Z",
-        "actualDeparture": "2026-06-19T02:02:00Z",
-        "estimatedDeparture": null,
-        "scheduledArrival": "2026-06-19T03:30:00Z",
-        "actualArrival": "2026-06-19T04:19:00Z",
-        "estimatedArrival": null,
-        "durationMinutes": 137,
-        "departureDelayMinutes": 62,
-        "arrivalDelayMinutes": 49,
-        "source": "fr24-seed"
-      }
-    },
-    {
-      "date": "2026-06-18",
-      "SU1009": {
-        "status": "diverted",
-        "scheduledDeparture": "2026-06-18T01:00:00Z",
-        "actualDeparture": "2026-06-18T01:01:00Z",
-        "estimatedDeparture": null,
-        "scheduledArrival": "2026-06-18T03:30:00Z",
-        "actualArrival": null,
-        "estimatedArrival": null,
-        "durationMinutes": null,
-        "departureDelayMinutes": 1,
-        "arrivalDelayMinutes": null,
-        "source": "fr24-seed"
-      }
     }
   ],
   "statistics": {
     "SU1032": {
-      "landedFlights": 8,
-      "cancelledFlights": 1,
+      "landedFlights": 3,
+      "cancelledFlights": 0,
       "divertedFlights": 0,
       "unknownFlights": 0,
-      "averageDepartureDelayMinutes": 12,
-      "averageArrivalDelayMinutes": 1,
-      "cancellationProbabilityPercent": 11.1
+      "averageDepartureDelayMinutes": 10,
+      "averageArrivalDelayMinutes": 0,
+      "cancellationProbabilityPercent": 0.0
     },
     "SU1009": {
-      "landedFlights": 7,
+      "landedFlights": 3,
       "cancelledFlights": 0,
-      "divertedFlights": 1,
-      "unknownFlights": 1,
-      "averageDepartureDelayMinutes": 32,
-      "averageArrivalDelayMinutes": 42,
+      "divertedFlights": 0,
+      "unknownFlights": 0,
+      "averageDepartureDelayMinutes": 81,
+      "averageArrivalDelayMinutes": 71,
       "cancellationProbabilityPercent": 0.0
     }
   }
