@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-30T19:06:57Z",
+  "updatedAt": "2026-06-30T19:17:52Z",
   "flights": {
     "SU1032": {
       "departureAirport": "SVO",
@@ -29,7 +29,9 @@
         "durationMinutes": 141,
         "departureDelayMinutes": 163,
         "arrivalDelayMinutes": 144,
-        "source": "svo"
+        "source": "svo",
+        "sourceFlightId": "9583602",
+        "sourceUrl": "https://www.svo.aero/ru/timetable/departure/flight/9583602/info"
       },
       "SU1009": {
         "status": "landed",
@@ -42,7 +44,9 @@
         "durationMinutes": 127,
         "departureDelayMinutes": 2,
         "arrivalDelayMinutes": -21,
-        "source": "svo"
+        "source": "svo",
+        "sourceFlightId": "9583564",
+        "sourceUrl": "https://www.svo.aero/ru/timetable/arrival/flight/9583564/info"
       }
     },
     {
