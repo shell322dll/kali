@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-30T01:34:09Z",
+  "updatedAt": "2026-06-30T05:50:19Z",
   "flights": {
     "SU1032": {
       "departureAirport": "SVO",
@@ -22,26 +22,26 @@
         "status": "scheduled",
         "scheduledDeparture": "2026-06-30T04:25:00Z",
         "actualDeparture": null,
-        "estimatedDeparture": null,
+        "estimatedDeparture": "2026-06-30T06:40:00Z",
         "scheduledArrival": "2026-06-30T07:05:00Z",
         "actualArrival": null,
         "estimatedArrival": null,
         "durationMinutes": null,
-        "departureDelayMinutes": null,
+        "departureDelayMinutes": 135,
         "arrivalDelayMinutes": null,
         "source": "svo"
       },
       "SU1009": {
-        "status": "airborne",
+        "status": "landed",
         "scheduledDeparture": "2026-06-30T01:00:00Z",
         "actualDeparture": "2026-06-30T01:02:00Z",
         "estimatedDeparture": null,
         "scheduledArrival": "2026-06-30T03:30:00Z",
-        "actualArrival": null,
-        "estimatedArrival": "2026-06-30T03:11:00Z",
-        "durationMinutes": null,
+        "actualArrival": "2026-06-30T03:08:39Z",
+        "estimatedArrival": "2026-06-30T03:07:00Z",
+        "durationMinutes": 127,
         "departureDelayMinutes": 2,
-        "arrivalDelayMinutes": -19,
+        "arrivalDelayMinutes": -21,
         "source": "svo"
       }
     },
@@ -353,12 +353,12 @@
       "cancellationProbabilityPercent": 10.0
     },
     "SU1009": {
-      "landedFlights": 8,
+      "landedFlights": 9,
       "cancelledFlights": 0,
       "divertedFlights": 1,
       "unknownFlights": 1,
-      "averageDepartureDelayMinutes": 57,
-      "averageArrivalDelayMinutes": 64,
+      "averageDepartureDelayMinutes": 51,
+      "averageArrivalDelayMinutes": 57,
       "cancellationProbabilityPercent": 0.0
     }
   }
