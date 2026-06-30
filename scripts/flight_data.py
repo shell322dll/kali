@@ -75,6 +75,12 @@ STATUS_RANK = {
     "cancelled": 5,
 }
 
+SOURCE_PRIORITY = {
+    "fr24-seed": 1,
+    "fr24-fallback": 1,
+    "svo": 2,
+}
+
 
 class SourceError(RuntimeError):
     """Raised when the SVO board cannot be read or decoded."""
@@ -271,8 +277,8 @@ def fetch_flight(
     return None
 
 
-def _svo_only_days(days: Iterable[Mapping[str, Any]]) -> list[dict[str, Any]]:
-    """Remove records from legacy or unknown sources before statistics are built."""
+def _trusted_source_days(days: Iterable[Mapping[str, Any]]) -> list[dict[str, Any]]:
+    """Keep records from SVO and the explicitly verified FR24 backfill."""
 
     cleaned: list[dict[str, Any]] = []
     for day in days:
@@ -282,7 +288,10 @@ def _svo_only_days(days: Iterable[Mapping[str, Any]]) -> list[dict[str, Any]]:
         row: dict[str, Any] = {"date": service_date}
         for flight_code in FLIGHTS:
             record = day.get(flight_code)
-            if isinstance(record, Mapping) and record.get("source") == "svo":
+            if (
+                isinstance(record, Mapping)
+                and record.get("source") in SOURCE_PRIORITY
+            ):
                 row[flight_code] = deepcopy(dict(record))
         if len(row) > 1:
             cleaned.append(row)
@@ -292,6 +301,12 @@ def _svo_only_days(days: Iterable[Mapping[str, Any]]) -> list[dict[str, Any]]:
 def _merge_record(old: Mapping[str, Any] | None, new: Mapping[str, Any]) -> dict[str, Any]:
     if not old:
         return deepcopy(dict(new))
+
+    old_priority = SOURCE_PRIORITY.get(str(old.get("source") or ""), 0)
+    new_priority = SOURCE_PRIORITY.get(str(new.get("source") or ""), 0)
+    if new_priority < old_priority:
+        return deepcopy(dict(old))
+
     merged = deepcopy(dict(old))
     for key, value in new.items():
         if value is not None:
@@ -299,7 +314,10 @@ def _merge_record(old: Mapping[str, Any] | None, new: Mapping[str, Any]) -> dict
 
     old_status = str(old.get("status") or "unknown")
     new_status = str(new.get("status") or "unknown")
-    if STATUS_RANK.get(new_status, 0) >= STATUS_RANK.get(old_status, 0):
+    if (
+        new_priority > old_priority
+        or STATUS_RANK.get(new_status, 0) >= STATUS_RANK.get(old_status, 0)
+    ):
         merged["status"] = new_status
 
     merged["durationMinutes"] = _minutes_between(
@@ -367,7 +385,9 @@ def update_dataset(
 ) -> tuple[dict[str, Any], bool]:
     updated = deepcopy(dict(dataset))
     original_days = updated.get("days", [])
-    source_days = _svo_only_days(original_days if isinstance(original_days, list) else [])
+    source_days = _trusted_source_days(
+        original_days if isinstance(original_days, list) else []
+    )
     by_date = {row["date"]: deepcopy(row) for row in source_days}
     changed = original_days != source_days
 

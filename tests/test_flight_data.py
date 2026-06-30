@@ -164,7 +164,7 @@ class FlightDataTests(unittest.TestCase):
             "2026-06-28T06:52:00Z",
         )
 
-    def test_update_removes_records_from_other_sources(self):
+    def test_update_keeps_verified_fr24_backfill_and_removes_unknown_sources(self):
         legacy = {
             "days": [
                 {
@@ -173,7 +173,7 @@ class FlightDataTests(unittest.TestCase):
                 },
                 {
                     "date": "2026-06-28",
-                    "SU1032": {"status": "landed", "source": "svo"},
+                    "SU1032": {"status": "landed", "source": "fr24-fallback"},
                 },
             ],
             "statistics": {},
@@ -183,6 +183,49 @@ class FlightDataTests(unittest.TestCase):
 
         self.assertTrue(changed)
         self.assertEqual([row["date"] for row in updated["days"]], ["2026-06-28"])
+
+    def test_svo_has_priority_over_fr24_fallback(self):
+        svo = normalize_svo_item("SU1032", svo_item())
+        fallback = {
+            "date": "2026-06-28",
+            "flight": "SU1032",
+            "record": {
+                "status": "landed",
+                "actualDeparture": "2026-06-28T05:00:00Z",
+                "actualArrival": "2026-06-28T07:00:00Z",
+                "source": "fr24-fallback",
+            },
+        }
+
+        with_svo, _ = update_dataset({"days": [], "statistics": {}}, [svo])
+        unchanged, changed = update_dataset(with_svo, [fallback])
+
+        self.assertFalse(changed)
+        self.assertEqual(unchanged, with_svo)
+
+    def test_svo_replaces_older_fr24_fallback(self):
+        fallback = {
+            "days": [
+                {
+                    "date": "2026-06-28",
+                    "SU1032": {
+                        "status": "cancelled",
+                        "scheduledDeparture": "2026-06-28T04:25:00Z",
+                        "source": "fr24-fallback",
+                    },
+                }
+            ],
+            "statistics": {},
+        }
+
+        updated, changed = update_dataset(
+            fallback, [normalize_svo_item("SU1032", svo_item())]
+        )
+
+        self.assertTrue(changed)
+        record = updated["days"][0]["SU1032"]
+        self.assertEqual(record["status"], "landed")
+        self.assertEqual(record["source"], "svo")
 
     def test_statistics_clamp_early_arrivals_and_exclude_unknown(self):
         days = [
