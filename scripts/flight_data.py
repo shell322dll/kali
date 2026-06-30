@@ -18,6 +18,7 @@ from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 
 API_URL = "https://www.svo.aero/bitrix/timetable/"
+PUBLIC_TIMETABLE_URL = "https://www.svo.aero/ru/timetable"
 UTC = timezone.utc
 
 
@@ -74,6 +75,12 @@ STATUS_RANK = {
     "cancelled": 5,
 }
 
+SOURCE_PRIORITY = {
+    "fr24-seed": 1,
+    "fr24-fallback": 1,
+    "svo": 2,
+}
+
 
 class SourceError(RuntimeError):
     """Raised when the SVO board cannot be read or decoded."""
@@ -125,7 +132,7 @@ def _status(item: Mapping[str, Any], actual_departure: str | None, actual_arriva
 
 
 def normalize_svo_item(flight_code: str, item: Mapping[str, Any]) -> dict[str, Any]:
-    """Convert one SVO board object into the stable public data schema."""
+    """Convert one SVO flight-detail object into the public data schema."""
 
     if flight_code not in FLIGHTS:
         raise ValueError(f"Unsupported flight: {flight_code}")
@@ -156,6 +163,14 @@ def normalize_svo_item(flight_code: str, item: Mapping[str, Any]) -> dict[str, A
     departure_reference = actual_departure or estimated_departure
     arrival_reference = actual_arrival or estimated_arrival
 
+    source_flight_id = str(item.get("i_id") or "")
+    direction = FLIGHTS[flight_code]["direction"]
+    source_url = (
+        f"{PUBLIC_TIMETABLE_URL}/{direction}/flight/{source_flight_id}/info"
+        if source_flight_id
+        else None
+    )
+
     record = {
         "status": status,
         "scheduledDeparture": scheduled_departure,
@@ -168,6 +183,8 @@ def normalize_svo_item(flight_code: str, item: Mapping[str, Any]) -> dict[str, A
         "departureDelayMinutes": _minutes_between(scheduled_departure, departure_reference),
         "arrivalDelayMinutes": _minutes_between(scheduled_arrival, arrival_reference),
         "source": "svo",
+        "sourceFlightId": source_flight_id or None,
+        "sourceUrl": source_url,
     }
     return {"date": service_date, "flight": flight_code, "record": record}
 
@@ -194,14 +211,18 @@ def build_url(flight_code: str, day: date) -> str:
     return f"{API_URL}?{query}"
 
 
-def fetch_flight(
-    flight_code: str,
-    day: date,
-    opener: Callable[..., Any] = urllib.request.urlopen,
-    timeout: int = 20,
-) -> dict[str, Any] | None:
+def build_detail_url(source_flight_id: str) -> str:
+    return f"{API_URL}{urllib.parse.quote(source_flight_id, safe='')}/"
+
+
+def _read_svo_json(
+    url: str,
+    opener: Callable[..., Any],
+    timeout: int,
+    context: str,
+) -> Any:
     request = urllib.request.Request(
-        build_url(flight_code, day),
+        url,
         headers={
             "Accept": "application/json",
             "User-Agent": "aeroflot-flight-tracker/1.0 (+GitHub Pages)",
@@ -209,9 +230,20 @@ def fetch_flight(
     )
     try:
         with opener(request, timeout=timeout) as response:
-            payload = json.load(response)
+            return json.load(response)
     except Exception as exc:  # urllib exposes several environment-specific errors
-        raise SourceError(f"SVO request failed for {flight_code} {day}: {exc}") from exc
+        raise SourceError(f"SVO request failed for {context}: {exc}") from exc
+
+
+def fetch_flight(
+    flight_code: str,
+    day: date,
+    opener: Callable[..., Any] = urllib.request.urlopen,
+    timeout: int = 20,
+) -> dict[str, Any] | None:
+    payload = _read_svo_json(
+        build_url(flight_code, day), opener, timeout, f"{flight_code} {day} board"
+    )
 
     items = payload.get("items") if isinstance(payload, dict) else None
     if not isinstance(items, list):
@@ -223,13 +255,58 @@ def fetch_flight(
         if not isinstance(carrier, dict):
             continue
         if carrier.get("code") == "SU" and str(item.get("flt")) == config["number"]:
-            return normalize_svo_item(flight_code, item)
+            source_flight_id = str(item.get("i_id") or "")
+            if not source_flight_id:
+                raise SourceError(f"SVO flight id missing for {flight_code} {day}")
+            detail = _read_svo_json(
+                build_detail_url(source_flight_id),
+                opener,
+                timeout,
+                f"{flight_code} {day} detail {source_flight_id}",
+            )
+            if not isinstance(detail, dict):
+                raise SourceError(f"Unexpected SVO detail response for {flight_code} {day}")
+            detail_carrier = detail.get("co")
+            if (
+                not isinstance(detail_carrier, dict)
+                or detail_carrier.get("code") != "SU"
+                or str(detail.get("flt")) != config["number"]
+            ):
+                raise SourceError(f"Mismatched SVO detail response for {flight_code} {day}")
+            return normalize_svo_item(flight_code, detail)
     return None
+
+
+def _trusted_source_days(days: Iterable[Mapping[str, Any]]) -> list[dict[str, Any]]:
+    """Keep records from SVO and the explicitly verified FR24 backfill."""
+
+    cleaned: list[dict[str, Any]] = []
+    for day in days:
+        service_date = str(day.get("date") or "")
+        if not service_date:
+            continue
+        row: dict[str, Any] = {"date": service_date}
+        for flight_code in FLIGHTS:
+            record = day.get(flight_code)
+            if (
+                isinstance(record, Mapping)
+                and record.get("source") in SOURCE_PRIORITY
+            ):
+                row[flight_code] = deepcopy(dict(record))
+        if len(row) > 1:
+            cleaned.append(row)
+    return cleaned
 
 
 def _merge_record(old: Mapping[str, Any] | None, new: Mapping[str, Any]) -> dict[str, Any]:
     if not old:
         return deepcopy(dict(new))
+
+    old_priority = SOURCE_PRIORITY.get(str(old.get("source") or ""), 0)
+    new_priority = SOURCE_PRIORITY.get(str(new.get("source") or ""), 0)
+    if new_priority < old_priority:
+        return deepcopy(dict(old))
+
     merged = deepcopy(dict(old))
     for key, value in new.items():
         if value is not None:
@@ -237,7 +314,10 @@ def _merge_record(old: Mapping[str, Any] | None, new: Mapping[str, Any]) -> dict
 
     old_status = str(old.get("status") or "unknown")
     new_status = str(new.get("status") or "unknown")
-    if STATUS_RANK.get(new_status, 0) >= STATUS_RANK.get(old_status, 0):
+    if (
+        new_priority > old_priority
+        or STATUS_RANK.get(new_status, 0) >= STATUS_RANK.get(old_status, 0)
+    ):
         merged["status"] = new_status
 
     merged["durationMinutes"] = _minutes_between(
@@ -304,8 +384,12 @@ def update_dataset(
     now: datetime | None = None,
 ) -> tuple[dict[str, Any], bool]:
     updated = deepcopy(dict(dataset))
-    by_date = {row["date"]: deepcopy(row) for row in updated.get("days", [])}
-    changed = False
+    original_days = updated.get("days", [])
+    source_days = _trusted_source_days(
+        original_days if isinstance(original_days, list) else []
+    )
+    by_date = {row["date"]: deepcopy(row) for row in source_days}
+    changed = original_days != source_days
 
     for normalized in normalized_records:
         service_date = str(normalized.get("date") or "")

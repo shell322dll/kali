@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-30T11:34:42Z",
+  "updatedAt": "2026-06-30T19:06:57Z",
   "flights": {
     "SU1032": {
       "departureAirport": "SVO",
@@ -58,7 +58,9 @@
         "durationMinutes": 136,
         "departureDelayMinutes": 11,
         "arrivalDelayMinutes": -8,
-        "source": "svo"
+        "source": "svo",
+        "sourceFlightId": "9582556",
+        "sourceUrl": "https://www.svo.aero/ru/timetable/departure/flight/9582556/info"
       },
       "SU1009": {
         "status": "landed",
@@ -71,7 +73,9 @@
         "durationMinutes": 132,
         "departureDelayMinutes": 232,
         "arrivalDelayMinutes": 214,
-        "source": "svo"
+        "source": "svo",
+        "sourceFlightId": "9582517",
+        "sourceUrl": "https://www.svo.aero/ru/timetable/arrival/flight/9582517/info"
       }
     },
     {
@@ -87,7 +91,9 @@
         "durationMinutes": 137,
         "departureDelayMinutes": 10,
         "arrivalDelayMinutes": -13,
-        "source": "svo"
+        "source": "svo",
+        "sourceFlightId": "9581521",
+        "sourceUrl": "https://www.svo.aero/ru/timetable/departure/flight/9581521/info"
       },
       "SU1009": {
         "status": "landed",
@@ -100,7 +106,9 @@
         "durationMinutes": 124,
         "departureDelayMinutes": 12,
         "arrivalDelayMinutes": -14,
-        "source": "svo"
+        "source": "svo",
+        "sourceFlightId": "9581485",
+        "sourceUrl": "https://www.svo.aero/ru/timetable/arrival/flight/9581485/info"
       }
     },
     {
@@ -146,6 +154,20 @@
         "departureDelayMinutes": 31,
         "arrivalDelayMinutes": 8,
         "source": "fr24-seed"
+      },
+      "SU1009": {
+        "status": "landed",
+        "scheduledDeparture": "2026-06-26T01:00:00Z",
+        "actualDeparture": "2026-06-26T01:21:00Z",
+        "estimatedDeparture": null,
+        "scheduledArrival": "2026-06-26T03:30:00Z",
+        "actualArrival": "2026-06-26T03:43:00Z",
+        "estimatedArrival": null,
+        "durationMinutes": 142,
+        "departureDelayMinutes": 21,
+        "arrivalDelayMinutes": 13,
+        "source": "fr24-fallback",
+        "sourceUrl": "https://www.flightradar24.com/data/flights/su1009"
       }
     },
     {
@@ -162,6 +184,20 @@
         "departureDelayMinutes": 6,
         "arrivalDelayMinutes": -23,
         "source": "fr24-seed"
+      },
+      "SU1009": {
+        "status": "landed",
+        "scheduledDeparture": "2026-06-25T01:00:00Z",
+        "actualDeparture": "2026-06-25T00:58:00Z",
+        "estimatedDeparture": null,
+        "scheduledArrival": "2026-06-25T03:30:00Z",
+        "actualArrival": "2026-06-25T03:20:00Z",
+        "estimatedArrival": null,
+        "durationMinutes": 142,
+        "departureDelayMinutes": -2,
+        "arrivalDelayMinutes": -10,
+        "source": "fr24-fallback",
+        "sourceUrl": "https://www.flightradar24.com/data/flights/su1009"
       }
     },
     {
@@ -180,17 +216,18 @@
         "source": "fr24-seed"
       },
       "SU1009": {
-        "status": "unknown",
+        "status": "landed",
         "scheduledDeparture": "2026-06-24T01:00:00Z",
         "actualDeparture": "2026-06-24T01:22:00Z",
         "estimatedDeparture": null,
         "scheduledArrival": "2026-06-24T03:30:00Z",
-        "actualArrival": null,
+        "actualArrival": "2026-06-24T03:33:00Z",
         "estimatedArrival": null,
-        "durationMinutes": null,
+        "durationMinutes": 131,
         "departureDelayMinutes": 22,
-        "arrivalDelayMinutes": null,
-        "source": "fr24-seed"
+        "arrivalDelayMinutes": 3,
+        "source": "fr24-fallback",
+        "sourceUrl": "https://www.flightradar24.com/data/flights/su1009"
       }
     },
     {
@@ -353,12 +390,12 @@
       "cancellationProbabilityPercent": 9.1
     },
     "SU1009": {
-      "landedFlights": 9,
+      "landedFlights": 12,
       "cancelledFlights": 0,
       "divertedFlights": 1,
-      "unknownFlights": 1,
-      "averageDepartureDelayMinutes": 51,
-      "averageArrivalDelayMinutes": 57,
+      "unknownFlights": 0,
+      "averageDepartureDelayMinutes": 42,
+      "averageArrivalDelayMinutes": 44,
       "cancellationProbabilityPercent": 0.0
     }
   }

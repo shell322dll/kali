@@ -23,13 +23,24 @@ def parse_args() -> argparse.Namespace:
         type=date.fromisoformat,
         help="Base Moscow date in YYYY-MM-DD format (defaults to today)",
     )
+    parser.add_argument(
+        "--days",
+        type=int,
+        default=2,
+        help="Number of calendar days to request, ending on the base date (default: 2)",
+    )
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
+    if not 1 <= args.days <= 30:
+        print("--days must be between 1 and 30", file=sys.stderr)
+        return 2
     base_day = args.date or datetime.now(MOSCOW).date()
-    requested_days = (base_day - timedelta(days=1), base_day)
+    requested_days = tuple(
+        base_day - timedelta(days=offset) for offset in range(args.days - 1, -1, -1)
+    )
     records = []
     successful_requests = 0
     errors = []
