@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-08T07:08:41Z",
+  "updatedAt": "2026-07-08T09:40:04Z",
   "flights": {
     "SU1032": {
       "departureAirport": "SVO",
@@ -19,7 +19,7 @@
     {
       "date": "2026-07-08",
       "SU1032": {
-        "status": "airborne",
+        "status": "diverted",
         "scheduledDeparture": "2026-07-08T04:20:00Z",
         "actualDeparture": "2026-07-08T04:35:37Z",
         "estimatedDeparture": null,
@@ -651,11 +651,11 @@
     "SU1032": {
       "landedFlights": 15,
       "cancelledFlights": 3,
-      "divertedFlights": 0,
+      "divertedFlights": 1,
       "unknownFlights": 0,
       "averageDepartureDelayMinutes": 22,
       "averageArrivalDelayMinutes": 10,
-      "cancellationProbabilityPercent": 16.7
+      "cancellationProbabilityPercent": 15.8
     },
     "SU1009": {
       "landedFlights": 20,
