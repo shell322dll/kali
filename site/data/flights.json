@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-12T01:06:28Z",
+  "updatedAt": "2026-07-12T04:32:42Z",
   "flights": {
     "SU1032": {
       "departureAirport": "SVO",
@@ -22,28 +22,28 @@
         "status": "scheduled",
         "scheduledDeparture": "2026-07-12T04:20:00Z",
         "actualDeparture": null,
-        "estimatedDeparture": null,
+        "estimatedDeparture": "2026-07-12T05:00:00Z",
         "scheduledArrival": "2026-07-12T07:05:00Z",
         "actualArrival": null,
         "estimatedArrival": null,
         "durationMinutes": null,
-        "departureDelayMinutes": null,
+        "departureDelayMinutes": 40,
         "arrivalDelayMinutes": null,
         "source": "svo",
         "sourceFlightId": "9597010",
         "sourceUrl": "https://www.svo.aero/ru/timetable/departure/flight/9597010/info"
       },
       "SU1009": {
-        "status": "airborne",
+        "status": "landed",
         "scheduledDeparture": "2026-07-12T01:00:00Z",
         "actualDeparture": "2026-07-12T01:01:00Z",
         "estimatedDeparture": null,
         "scheduledArrival": "2026-07-12T03:30:00Z",
-        "actualArrival": null,
-        "estimatedArrival": "2026-07-12T03:25:00Z",
-        "durationMinutes": null,
+        "actualArrival": "2026-07-12T03:55:31Z",
+        "estimatedArrival": "2026-07-12T03:54:00Z",
+        "durationMinutes": 175,
         "departureDelayMinutes": 1,
-        "arrivalDelayMinutes": -5,
+        "arrivalDelayMinutes": 26,
         "source": "svo",
         "sourceFlightId": "9596980",
         "sourceUrl": "https://www.svo.aero/ru/timetable/arrival/flight/9596980/info"
@@ -790,12 +790,12 @@
       "cancellationProbabilityPercent": 13.6
     },
     "SU1009": {
-      "landedFlights": 23,
+      "landedFlights": 24,
       "cancelledFlights": 0,
       "divertedFlights": 1,
       "unknownFlights": 0,
-      "averageDepartureDelayMinutes": 28,
-      "averageArrivalDelayMinutes": 105,
+      "averageDepartureDelayMinutes": 26,
+      "averageArrivalDelayMinutes": 102,
       "cancellationProbabilityPercent": 0.0
     }
   }
