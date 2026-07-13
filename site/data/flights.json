@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-13T04:38:43Z",
+  "updatedAt": "2026-07-13T07:56:05Z",
   "flights": {
     "SU1032": {
       "departureAirport": "SVO",
@@ -19,16 +19,16 @@
     {
       "date": "2026-07-13",
       "SU1032": {
-        "status": "airborne",
+        "status": "landed",
         "scheduledDeparture": "2026-07-13T04:20:00Z",
         "actualDeparture": "2026-07-13T04:25:03Z",
         "estimatedDeparture": null,
         "scheduledArrival": "2026-07-13T07:05:00Z",
-        "actualArrival": null,
+        "actualArrival": "2026-07-13T06:38:00Z",
         "estimatedArrival": null,
-        "durationMinutes": null,
+        "durationMinutes": 133,
         "departureDelayMinutes": 5,
-        "arrivalDelayMinutes": null,
+        "arrivalDelayMinutes": -27,
         "source": "svo",
         "sourceFlightId": "9598107",
         "sourceUrl": "https://www.svo.aero/ru/timetable/departure/flight/9598107/info"
@@ -814,13 +814,13 @@
   ],
   "statistics": {
     "SU1032": {
-      "landedFlights": 20,
+      "landedFlights": 21,
       "cancelledFlights": 3,
       "divertedFlights": 0,
       "unknownFlights": 0,
-      "averageDepartureDelayMinutes": 29,
-      "averageArrivalDelayMinutes": 27,
-      "cancellationProbabilityPercent": 13.0
+      "averageDepartureDelayMinutes": 28,
+      "averageArrivalDelayMinutes": 26,
+      "cancellationProbabilityPercent": 12.5
     },
     "SU1009": {
       "landedFlights": 25,
