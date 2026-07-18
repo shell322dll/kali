@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-18T04:06:17Z",
+  "updatedAt": "2026-07-18T06:14:27Z",
   "flights": {
     "SU1032": {
       "departureAirport": "SVO",
@@ -22,12 +22,12 @@
         "status": "scheduled",
         "scheduledDeparture": "2026-07-18T04:20:00Z",
         "actualDeparture": null,
-        "estimatedDeparture": "2026-07-18T05:20:00Z",
+        "estimatedDeparture": "2026-07-18T06:20:00Z",
         "scheduledArrival": "2026-07-18T07:05:00Z",
         "actualArrival": null,
         "estimatedArrival": null,
         "durationMinutes": null,
-        "departureDelayMinutes": 60,
+        "departureDelayMinutes": 120,
         "arrivalDelayMinutes": null,
         "source": "svo",
         "sourceFlightId": "9603520",
