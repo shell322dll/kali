@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-17T21:36:09Z",
+  "updatedAt": "2026-07-18T04:06:17Z",
   "flights": {
     "SU1032": {
       "departureAirport": "SVO",
@@ -22,28 +22,28 @@
         "status": "scheduled",
         "scheduledDeparture": "2026-07-18T04:20:00Z",
         "actualDeparture": null,
-        "estimatedDeparture": null,
+        "estimatedDeparture": "2026-07-18T05:20:00Z",
         "scheduledArrival": "2026-07-18T07:05:00Z",
         "actualArrival": null,
         "estimatedArrival": null,
         "durationMinutes": null,
-        "departureDelayMinutes": null,
+        "departureDelayMinutes": 60,
         "arrivalDelayMinutes": null,
         "source": "svo",
         "sourceFlightId": "9603520",
         "sourceUrl": "https://www.svo.aero/ru/timetable/departure/flight/9603520/info"
       },
       "SU1009": {
-        "status": "scheduled",
+        "status": "landed",
         "scheduledDeparture": "2026-07-18T01:00:00Z",
-        "actualDeparture": null,
+        "actualDeparture": "2026-07-18T01:00:00Z",
         "estimatedDeparture": null,
         "scheduledArrival": "2026-07-18T03:30:00Z",
-        "actualArrival": null,
-        "estimatedArrival": null,
-        "durationMinutes": null,
-        "departureDelayMinutes": null,
-        "arrivalDelayMinutes": null,
+        "actualArrival": "2026-07-18T03:29:22Z",
+        "estimatedArrival": "2026-07-18T03:28:00Z",
+        "durationMinutes": 149,
+        "departureDelayMinutes": 0,
+        "arrivalDelayMinutes": -1,
         "source": "svo",
         "sourceFlightId": "9603486",
         "sourceUrl": "https://www.svo.aero/ru/timetable/arrival/flight/9603486/info"
@@ -988,12 +988,12 @@
       "cancellationProbabilityPercent": 10.7
     },
     "SU1009": {
-      "landedFlights": 29,
+      "landedFlights": 30,
       "cancelledFlights": 0,
       "divertedFlights": 1,
       "unknownFlights": 0,
       "averageDepartureDelayMinutes": 23,
-      "averageArrivalDelayMinutes": 84,
+      "averageArrivalDelayMinutes": 82,
       "cancellationProbabilityPercent": 0.0
     }
   }
