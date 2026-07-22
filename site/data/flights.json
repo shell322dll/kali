@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-21T21:36:21Z",
+  "updatedAt": "2026-07-22T00:57:42Z",
   "flights": {
     "SU1032": {
       "departureAirport": "SVO",
@@ -40,10 +40,10 @@
         "estimatedDeparture": null,
         "scheduledArrival": "2026-07-22T03:30:00Z",
         "actualArrival": null,
-        "estimatedArrival": null,
+        "estimatedArrival": "2026-07-22T05:22:00Z",
         "durationMinutes": null,
         "departureDelayMinutes": null,
-        "arrivalDelayMinutes": null,
+        "arrivalDelayMinutes": 112,
         "source": "svo",
         "sourceFlightId": "9607747",
         "sourceUrl": "https://www.svo.aero/ru/timetable/arrival/flight/9607747/info"
