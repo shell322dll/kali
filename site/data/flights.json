@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-24T01:12:02Z",
+  "updatedAt": "2026-07-24T04:34:42Z",
   "flights": {
     "SU1032": {
       "departureAirport": "SVO",
@@ -22,28 +22,28 @@
         "status": "scheduled",
         "scheduledDeparture": "2026-07-24T04:20:00Z",
         "actualDeparture": null,
-        "estimatedDeparture": null,
+        "estimatedDeparture": "2026-07-24T08:00:00Z",
         "scheduledArrival": "2026-07-24T07:05:00Z",
         "actualArrival": null,
         "estimatedArrival": null,
         "durationMinutes": null,
-        "departureDelayMinutes": null,
+        "departureDelayMinutes": 220,
         "arrivalDelayMinutes": null,
         "source": "svo",
         "sourceFlightId": "9609964",
         "sourceUrl": "https://www.svo.aero/ru/timetable/departure/flight/9609964/info"
       },
       "SU1009": {
-        "status": "airborne",
+        "status": "landed",
         "scheduledDeparture": "2026-07-24T01:00:00Z",
         "actualDeparture": "2026-07-24T01:05:00Z",
         "estimatedDeparture": null,
         "scheduledArrival": "2026-07-24T03:30:00Z",
-        "actualArrival": null,
-        "estimatedArrival": "2026-07-24T03:32:00Z",
-        "durationMinutes": null,
+        "actualArrival": "2026-07-24T03:34:57Z",
+        "estimatedArrival": "2026-07-24T03:34:00Z",
+        "durationMinutes": 150,
         "departureDelayMinutes": 5,
-        "arrivalDelayMinutes": 2,
+        "arrivalDelayMinutes": 5,
         "source": "svo",
         "sourceFlightId": "9609936",
         "sourceUrl": "https://www.svo.aero/ru/timetable/arrival/flight/9609936/info"
@@ -1186,12 +1186,12 @@
       "cancellationProbabilityPercent": 8.8
     },
     "SU1009": {
-      "landedFlights": 35,
+      "landedFlights": 36,
       "cancelledFlights": 0,
       "divertedFlights": 1,
       "unknownFlights": 0,
       "averageDepartureDelayMinutes": 25,
-      "averageArrivalDelayMinutes": 75,
+      "averageArrivalDelayMinutes": 74,
       "cancellationProbabilityPercent": 0.0
     }
   }
