@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-24T11:20:33Z",
+  "updatedAt": "2026-07-24T21:41:27Z",
   "flights": {
     "SU1032": {
       "departureAirport": "SVO",
@@ -16,6 +16,39 @@
     }
   },
   "days": [
+    {
+      "date": "2026-07-25",
+      "SU1032": {
+        "status": "scheduled",
+        "scheduledDeparture": "2026-07-25T04:20:00Z",
+        "actualDeparture": null,
+        "estimatedDeparture": null,
+        "scheduledArrival": "2026-07-25T07:05:00Z",
+        "actualArrival": null,
+        "estimatedArrival": null,
+        "durationMinutes": null,
+        "departureDelayMinutes": null,
+        "arrivalDelayMinutes": null,
+        "source": "svo",
+        "sourceFlightId": "9611048",
+        "sourceUrl": "https://www.svo.aero/ru/timetable/departure/flight/9611048/info"
+      },
+      "SU1009": {
+        "status": "scheduled",
+        "scheduledDeparture": "2026-07-25T01:00:00Z",
+        "actualDeparture": null,
+        "estimatedDeparture": null,
+        "scheduledArrival": "2026-07-25T03:30:00Z",
+        "actualArrival": null,
+        "estimatedArrival": "2026-07-25T03:17:00Z",
+        "durationMinutes": null,
+        "departureDelayMinutes": null,
+        "arrivalDelayMinutes": -13,
+        "source": "svo",
+        "sourceFlightId": "9611014",
+        "sourceUrl": "https://www.svo.aero/ru/timetable/arrival/flight/9611014/info"
+      }
+    },
     {
       "date": "2026-07-24",
       "SU1032": {
