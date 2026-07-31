@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-31T01:08:01Z",
+  "updatedAt": "2026-07-31T04:44:47Z",
   "flights": {
     "SU1032": {
       "departureAirport": "SVO",
@@ -19,31 +19,31 @@
     {
       "date": "2026-07-31",
       "SU1032": {
-        "status": "scheduled",
+        "status": "airborne",
         "scheduledDeparture": "2026-07-31T04:20:00Z",
-        "actualDeparture": null,
+        "actualDeparture": "2026-07-31T04:32:13Z",
         "estimatedDeparture": null,
         "scheduledArrival": "2026-07-31T07:05:00Z",
         "actualArrival": null,
         "estimatedArrival": null,
         "durationMinutes": null,
-        "departureDelayMinutes": null,
+        "departureDelayMinutes": 12,
         "arrivalDelayMinutes": null,
         "source": "svo",
         "sourceFlightId": "9617451",
         "sourceUrl": "https://www.svo.aero/ru/timetable/departure/flight/9617451/info"
       },
       "SU1009": {
-        "status": "airborne",
+        "status": "landed",
         "scheduledDeparture": "2026-07-31T01:00:00Z",
         "actualDeparture": "2026-07-31T00:56:00Z",
         "estimatedDeparture": null,
         "scheduledArrival": "2026-07-31T03:30:00Z",
-        "actualArrival": null,
-        "estimatedArrival": "2026-07-31T03:10:00Z",
-        "durationMinutes": null,
+        "actualArrival": "2026-07-31T03:02:08Z",
+        "estimatedArrival": "2026-07-31T03:01:00Z",
+        "durationMinutes": 126,
         "departureDelayMinutes": -4,
-        "arrivalDelayMinutes": -20,
+        "arrivalDelayMinutes": -28,
         "source": "svo",
         "sourceFlightId": "9617424",
         "sourceUrl": "https://www.svo.aero/ru/timetable/arrival/flight/9617424/info"
@@ -1417,12 +1417,12 @@
       "cancellationProbabilityPercent": 7.5
     },
     "SU1009": {
-      "landedFlights": 42,
+      "landedFlights": 43,
       "cancelledFlights": 0,
       "divertedFlights": 1,
       "unknownFlights": 0,
-      "averageDepartureDelayMinutes": 22,
-      "averageArrivalDelayMinutes": 63,
+      "averageDepartureDelayMinutes": 21,
+      "averageArrivalDelayMinutes": 62,
       "cancellationProbabilityPercent": 0.0
     }
   }
