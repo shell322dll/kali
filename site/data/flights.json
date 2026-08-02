@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-01T21:02:04Z",
+  "updatedAt": "2026-08-02T03:41:08Z",
   "flights": {
     "SU1032": {
       "departureAirport": "SVO",
@@ -34,16 +34,16 @@
         "sourceUrl": "https://www.svo.aero/ru/timetable/departure/flight/9619620/info"
       },
       "SU1009": {
-        "status": "scheduled",
+        "status": "landed",
         "scheduledDeparture": "2026-08-02T01:00:00Z",
-        "actualDeparture": null,
+        "actualDeparture": "2026-08-02T00:55:00Z",
         "estimatedDeparture": null,
         "scheduledArrival": "2026-08-02T03:30:00Z",
-        "actualArrival": null,
-        "estimatedArrival": null,
-        "durationMinutes": null,
-        "departureDelayMinutes": null,
-        "arrivalDelayMinutes": null,
+        "actualArrival": "2026-08-02T03:03:25Z",
+        "estimatedArrival": "2026-08-02T03:02:00Z",
+        "durationMinutes": 128,
+        "departureDelayMinutes": -5,
+        "arrivalDelayMinutes": -27,
         "source": "svo",
         "sourceFlightId": "9619592",
         "sourceUrl": "https://www.svo.aero/ru/timetable/arrival/flight/9619592/info"
@@ -1483,12 +1483,12 @@
       "cancellationProbabilityPercent": 7.1
     },
     "SU1009": {
-      "landedFlights": 44,
+      "landedFlights": 45,
       "cancelledFlights": 0,
       "divertedFlights": 1,
       "unknownFlights": 0,
-      "averageDepartureDelayMinutes": 21,
-      "averageArrivalDelayMinutes": 60,
+      "averageDepartureDelayMinutes": 20,
+      "averageArrivalDelayMinutes": 59,
       "cancellationProbabilityPercent": 0.0
     }
   }
